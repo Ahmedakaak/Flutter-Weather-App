@@ -10,13 +10,16 @@ class AppDrawer extends StatelessWidget {
       child: ListView(
         children: [
           UserAccountsDrawerHeader(
-            accountName: const Text('Junn Eric'),
-            accountEmail: const Text('junn.eric@utas.edu.om'),
+            decoration: BoxDecoration(
+              color: Theme.of(context).primaryColor,
+            ),
+            accountName: const Text('Ahmed Akaak'),
+            accountEmail: const Text('42s2074@utas.edu.om'),
             currentAccountPicture: CircleAvatar(
               backgroundColor: Colors.white,
               child: ClipOval(
                 child: Image(
-                  image: const AssetImage('images/profile1.jpg'),
+                  image: const AssetImage('images/profile1.avif'),
                   fit: BoxFit.cover,
                   width: 100.0,
                   height: 100.0,

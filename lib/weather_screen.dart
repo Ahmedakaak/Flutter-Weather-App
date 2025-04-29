@@ -6,8 +6,9 @@ import 'package:intl/intl.dart';
 import 'package:weather_app/Additional_info.dart';
 import 'package:weather_app/Hourly_forcast_item.dart';
 import 'package:http/http.dart' as http;
-import 'package:weather_app/secrets.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:weather_app/app_drawer.dart';
+import 'package:weather_app/config/env.dart';
 
 class WeatherScreen extends StatefulWidget {
   const WeatherScreen({super.key});
@@ -23,10 +24,16 @@ class _WeatherScreenState extends State<WeatherScreen> {
   
   Future<Map<String, dynamic>> getCurrentWeather() async {
     try {
+      print('API Key from Env: ${Env.openWeatherApiKey}'); // Debug print
+      print('API Key from dotenv: ${dotenv.env['OPENWEATHER_API_KEY']}'); // Debug print
+      
       final res = await http.get(
         Uri.parse(
-            'http://api.openweathermap.org/data/2.5/forecast?q=$_currentCity,&APPID=$openWeatherAPIKey'),
+            'http://api.openweathermap.org/data/2.5/forecast?q=$_currentCity&APPID=${Env.openWeatherApiKey}'),
       );
+
+      print('API Response Status: ${res.statusCode}'); // Debug print
+      print('API Response Body: ${res.body}'); // Debug print
 
       final data = jsonDecode(res.body);
 
@@ -36,6 +43,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
       return data;
     }
     catch(e) {
+      print('Error: $e'); // Debug print
       throw e.toString();
     }
   }
@@ -53,6 +61,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
   @override
   void initState() {
     super.initState();
+    print('API Key: ${Env.openWeatherApiKey}'); // Debug print
     weather = getCurrentWeather();
   }
 
@@ -198,7 +207,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
                             final hourlSky = hourlyforacast['weather'][0]['main'];
                             final hourlytemp=hourlyforacast['main']['temp'].toString();
                             return HourlyForacastItem(
-                              time: DateFormat.Hms().format(time), 
+                              time: DateFormat.Hm().format(time), 
                               icon: hourlSky =='Clouds' || hourlSky == 'rain' ?Icons.cloud : Icons.sunny, 
                               temp: '${(double.parse(hourlytemp) - 273.15).toStringAsFixed(1)}°C'
                             );
