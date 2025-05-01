@@ -9,6 +9,7 @@ import 'package:http/http.dart' as http;
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:weather_app/app_drawer.dart';
 import 'package:weather_app/config/env.dart';
+import 'package:lottie/lottie.dart';
 
 class WeatherScreen extends StatefulWidget {
   const WeatherScreen({super.key});
@@ -20,7 +21,7 @@ class WeatherScreen extends StatefulWidget {
 class _WeatherScreenState extends State<WeatherScreen> {
   late Future<Map<String,dynamic>> weather;
   final TextEditingController _searchController = TextEditingController();
-  String _currentCity = 'Muscat';
+  String _currentCity = 'Salalah';
   
   Future<Map<String, dynamic>> getCurrentWeather() async {
     try {
@@ -173,11 +174,11 @@ class _WeatherScreenState extends State<WeatherScreen> {
                                       ),
                                     ),
                                     const SizedBox(height: 16),
-                                    Icon(
-                                      currentSky == 'Clouds' || currentSky == 'Rain'? Icons.cloud
-                                      : Icons.sunny,
-                                      size: 64,
-                                    ),
+                                    (currentSky == 'Clouds')
+                                      ? Lottie.asset('assets/animations/cloudy.json', width: 100, height: 100)
+                                      : (currentSky == 'Rain')
+                                        ? Lottie.asset('assets/animations/rain.json', width: 100, height: 100)
+                                        : Lottie.asset('assets/animations/sunny.json', width: 100, height: 100),
                                     const SizedBox(height: 16),
                                     Text(
                                       currentSky,
@@ -208,7 +209,11 @@ class _WeatherScreenState extends State<WeatherScreen> {
                             final hourlytemp=hourlyforacast['main']['temp'].toString();
                             return HourlyForacastItem(
                               time: DateFormat.Hm().format(time), 
-                              icon: hourlSky =='Clouds' || hourlSky == 'rain' ?Icons.cloud : Icons.sunny, 
+                              icon: (hourlSky == 'Clouds')
+                                ? Lottie.asset('assets/animations/cloudy.json', width: 36, height: 36)
+                                : (hourlSky == 'Rain')
+                                  ? Lottie.asset('assets/animations/rain.json', width: 36, height: 36)
+                                  : Lottie.asset('assets/animations/sunny.json', width: 36, height: 36),
                               temp: '${(double.parse(hourlytemp) - 273.15).toStringAsFixed(1)}°C'
                             );
                           }),
@@ -223,17 +228,17 @@ class _WeatherScreenState extends State<WeatherScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           Additonal_info(
-                            icon: Icons.water_drop,
+                            icon: Lottie.asset('assets/animations/humid.json', width: 36, height: 36),
                             label: "Humidity",
                             value: "$current_humidity%",
                           ),
                           Additonal_info(
-                            icon: Icons.air,
+                            icon: Lottie.asset('assets/animations/windspeed.json', width: 36, height: 36),
                             label: "Wind Speed",
                             value: "${current_wind_speed}m/s",
                           ),
                           Additonal_info(
-                            icon: Icons.speed,
+                            icon: Lottie.asset('assets/animations/pr.json', width: 36, height: 36),
                             label: "Pressure",
                             value: "${currentpressure}hPa",
                           ),

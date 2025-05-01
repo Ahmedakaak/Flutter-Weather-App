@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Additonal_info extends StatelessWidget {
-  final IconData icon;
+  final Widget icon;
   final String label;
   final String value;
   const Additonal_info({
@@ -15,10 +15,7 @@ class Additonal_info extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Column(
       children: [
-        Icon(
-          icon,
-          size: 32,
-        ),
+       icon,
         const SizedBox(
           height: 9,
         ),

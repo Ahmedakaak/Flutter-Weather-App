@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 class HourlyForacastItem extends StatelessWidget {
   final String time;
-  final icon;
+  final Widget icon;
   final String temp;
   const HourlyForacastItem({
     super.key,
@@ -17,7 +17,7 @@ class HourlyForacastItem extends StatelessWidget {
     return Card(
       elevation: 6,
       child: Container(
-        width: 100,
+        width: 105,
         padding: const EdgeInsets.all(8.0),
         decoration: BoxDecoration(borderRadius: BorderRadius.circular(12)),
         child: Column(
@@ -31,10 +31,7 @@ class HourlyForacastItem extends StatelessWidget {
             const SizedBox(
               height: 8,
             ),
-            Icon(
-              icon,
-              size: 32,
-            ),
+            icon,
             const SizedBox(
               height: 8,
             ),
