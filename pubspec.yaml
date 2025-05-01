@@ -73,7 +73,7 @@ flutter:
     - assets/animations/sunny.json
     - assets/animations/rain.json
     - assets/animations/humid.json
-    - assets/animations/pr.json
+    - assets/animations/pre.json
     - assets/animations/windspeed.json
 
 

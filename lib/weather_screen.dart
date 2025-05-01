@@ -238,7 +238,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
                             value: "${current_wind_speed}m/s",
                           ),
                           Additonal_info(
-                            icon: Lottie.asset('assets/animations/pr.json', width: 36, height: 36),
+                            icon: Lottie.asset('assets/animations/pre.json', width: 36, height: 36),
                             label: "Pressure",
                             value: "${currentpressure}hPa",
                           ),
