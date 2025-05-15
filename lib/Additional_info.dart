@@ -4,18 +4,17 @@ class Additonal_info extends StatelessWidget {
   final Widget icon;
   final String label;
   final String value;
-  const Additonal_info({
-    super.key,
-    required this.icon,
-    required this.label,
-    required this.value
-  });
+  const Additonal_info(
+      {super.key,
+      required this.icon,
+      required this.label,
+      required this.value});
 
   @override
   Widget build(BuildContext context) {
-    return  Column(
+    return Column(
       children: [
-       icon,
+        icon,
         const SizedBox(
           height: 9,
         ),

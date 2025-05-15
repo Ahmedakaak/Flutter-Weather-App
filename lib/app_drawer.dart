@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/faves.dart';
+import 'package:weather_app/login.dart';
+import 'package:weather_app/register.dart';
 import 'weather_screen.dart';
 
 class AppDrawer extends StatelessWidget {
@@ -19,7 +22,7 @@ class AppDrawer extends StatelessWidget {
               backgroundColor: Colors.white,
               child: ClipOval(
                 child: Image(
-                  image: const AssetImage('images/profile1.avif'),
+                  image: const AssetImage('images/profile-icon.jpg'),
                   fit: BoxFit.cover,
                   width: 100.0,
                   height: 100.0,
@@ -37,7 +40,6 @@ class AppDrawer extends StatelessWidget {
               ),
             ),
             onTap: () {
-              Navigator.pop(context);
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => const WeatherScreen()),
@@ -47,57 +49,43 @@ class AppDrawer extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.question_answer),
             title: const Text(
-              'About',
+              'Register',
               style: TextStyle(
                 fontSize: 20.0,
                 fontWeight: FontWeight.bold,
               ),
             ),
             onTap: () {
-              Navigator.pop(context);
-            },
-          ),
-          ListTile(
-            leading: const Icon(Icons.edit_document),
-            title: const Text(
-              'Registration',
-              style: TextStyle(
-                fontSize: 20.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            onTap: () {
-              Navigator.pop(context);
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => Myregistration()));
             },
           ),
           ListTile(
             leading: const Icon(Icons.login),
             title: const Text(
-              'Sign In',
+              'Login',
               style: TextStyle(
                 fontSize: 20.0,
                 fontWeight: FontWeight.bold,
               ),
             ),
             onTap: () {
-              Navigator.pop(context);
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => Mylogin()));
             },
           ),
           ListTile(
-            leading: const Icon(Icons.logout),
-            title: const Text(
-              'Sign Out',
-              style: TextStyle(
-                fontSize: 20.0,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
+            leading: const Icon(Icons.favorite),
+            title: const Text('Favorites'),
             onTap: () {
-              Navigator.pop(context);
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => const FavoritesPage()),
+              );
             },
           ),
         ],
       ),
     );
   }
-} 
+}

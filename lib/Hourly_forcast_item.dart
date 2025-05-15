@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 class HourlyForacastItem extends StatelessWidget {
   final String time;
   final Widget icon;
@@ -8,9 +9,7 @@ class HourlyForacastItem extends StatelessWidget {
     required this.time,
     required this.icon,
     required this.temp,
-
-
-    });
+  });
 
   @override
   Widget build(BuildContext context) {

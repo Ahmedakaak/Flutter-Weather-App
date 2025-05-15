@@ -1,0 +1,2 @@
+C:/Users/oppc/Documents/Flutter-Weather-App/android/app/.cxx/Debug/1t6t5122/x86/CMakeFiles/edit_cache.dir
+C:/Users/oppc/Documents/Flutter-Weather-App/android/app/.cxx/Debug/1t6t5122/x86/CMakeFiles/rebuild_cache.dir
