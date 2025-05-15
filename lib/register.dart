@@ -107,7 +107,7 @@ class _MyregistrationState extends State<Myregistration> {
                     decoration: InputDecoration(
                         label: Text("enter name"),
                         border: OutlineInputBorder(),
-                        prefixIcon: Icon(Icons.phone)),
+                        prefixIcon: Icon(Icons.person)),
                   ),
                 ),
                 Container(

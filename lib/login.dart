@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
+import 'package:weather_app/admin_function.dart';
 import 'package:weather_app/admin_login.dart';
 import 'package:weather_app/main.dart';
 import 'package:weather_app/register.dart';

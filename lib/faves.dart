@@ -18,7 +18,7 @@ class _FavoritesPageState extends State<FavoritesPage> {
   @override
   void initState() {
     super.initState();
-    // Update weather data for all favorites when page loads
+    
     _favoritesService.updateAllFavoritesWeatherData();
   }
 
