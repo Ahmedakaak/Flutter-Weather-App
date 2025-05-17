@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:weather_app/fave_city.dart';
+import 'package:weather_app/fave_moudle.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:weather_app/config/env.dart';

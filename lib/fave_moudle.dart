@@ -1,3 +1,4 @@
+// ignore: unused_import
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class FavoriteCity {
@@ -5,7 +6,7 @@ class FavoriteCity {
   final String cityName;
   final String userId;
 
-  // Optional cached weather data
+ 
   String? temperature;
   String? weatherStatus;
 
@@ -38,18 +39,5 @@ class FavoriteCity {
     };
   }
 
-  // Create copy with updated fields
-  FavoriteCity copyWith({
-    String? cityName,
-    String? temperature,
-    String? weatherStatus,
-  }) {
-    return FavoriteCity(
-      id: id,
-      cityName: cityName ?? this.cityName,
-      userId: userId,
-      temperature: temperature ?? this.temperature,
-      weatherStatus: weatherStatus ?? this.weatherStatus,
-    );
-  }
+
 }
